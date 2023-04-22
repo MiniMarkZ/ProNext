@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
 .title {
     background-image: url('https://scontent.fbkk5-4.fna.fbcdn.net/v/t31.18172-8/321990_105756559540038_1087074870_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHzytFdl31yuNRQdVYlq5D8cDKTxGrNKJlwMpPEas0omerJxAIcZ5QwImKtXuEAKguFfM45rXYSwoqT3EE35nDF&_nc_ohc=W8kLFcUF_sYAX-87Pbk&_nc_ht=scontent.fbkk5-4.fna&oh=00_AfBXnt2pbVSIZHMM4l51otPk7dWRXjfmoDpjI-ERlY4tIQ&oe=646B1DA8');
     background-repeat: no-repeat;
@@ -7,12 +10,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 1000px;
+    height: 950px;
+    
+    filter: brightness(90%) contrast(80%);
+
+  }
+.texttitle {
     font-size: 4rem;
     font-weight: bold;
     text-align: center;
     color: #1D1D1F;
-      
+    font-family: 'Kanit', sans-serif;
+}
 
+.text {
+    font-size: 2rem;
+    text-align: center;
+    color: #1D1D1F;
+    font-family: 'Kanit', sans-serif;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
   }
   
+.cardImage {
+    width: 25%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+  }
