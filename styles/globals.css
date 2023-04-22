@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary-color: #007aff;
+  --background-color: #f9f9f9;
+  --foreground-color: #333;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,11 +17,42 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Helvetica', sans-serif;
+  font-size: 16px;
+  color: var(--foreground-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+
+header {
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  color: #1D1D1F;
+
+} */
+
+button {
+  background-color: #F5F5F7;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #F5F5F7;
 }
