@@ -1,39 +1,76 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+.background {
+  background-image: url('https://media.discordapp.net/attachments/900255663081545761/1099300641249177620/feec8171-1d02-4b6c-abf5-02f8d0c7d868.jpg?width=1560&height=1170');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 950px;
 
-.title {
-    background-image: url('https://scontent.fbkk5-4.fna.fbcdn.net/v/t31.18172-8/321990_105756559540038_1087074870_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHzytFdl31yuNRQdVYlq5D8cDKTxGrNKJlwMpPEas0omerJxAIcZ5QwImKtXuEAKguFfM45rXYSwoqT3EE35nDF&_nc_ohc=W8kLFcUF_sYAX-87Pbk&_nc_ht=scontent.fbkk5-4.fna&oh=00_AfBXnt2pbVSIZHMM4l51otPk7dWRXjfmoDpjI-ERlY4tIQ&oe=646B1DA8');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 950px;
-    
-    filter: brightness(90%) contrast(80%);
+}
 
-  }
 .texttitle {
-    font-size: 4rem;
-    font-weight: bold;
-    text-align: center;
-    color: #1D1D1F;
-    font-family: 'Kanit', sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  color: #f5f5f9;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  z-index: 1; /* ให้ข้อความอยู่หน้าสุด */
+  overflow: hidden; /* Hide overflow text */
+  white-space: nowrap; /* Keep text on one line */
+  animation: typewriter 5s steps(60) forwards;
 }
 
 .text {
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
     color: #1D1D1F;
     font-family: 'Kanit', sans-serif;
+    filter: none;
 }
 
-.cardContainer {
-    display: flex;
-    justify-content: center;
+.textcard {
+  font-size: 20px;
+  text-align: center;
+  color: #1D1D1F;
+  font-family: 'Kanit', sans-serif;
+  filter: none;
+  animation-name: fadeIn;
+  animation-duration: 5s;
+}
+
+
+.cardContainer::before,
+.cardContainer::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 0;
+}
+
+.cardContainer::before {
+  top: 0;
+  left: 0;
+  border-color: #000 transparent transparent #000;
+}
+  .cardContainer::after {
+    bottom: 0;
+    right: 0;
+    border-color: transparent #000 #000 transparent;
   }
+  
+  
+
+  .textContainer p {
+   margin-left: 1rem;
+  } 
   
 .cardImage {
     width: 25%;
@@ -41,3 +78,27 @@
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     margin: 1rem;
   }
+
+/* Define the keyframe animation */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+  
