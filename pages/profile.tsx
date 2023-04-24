@@ -54,6 +54,27 @@ const ProfilePage: NextPage<Props> = ({ user }) => {
       </div>
       <div className={styles.text} style={{ textAlign: 'center' }}>
         <br />
+        <p >ประวัติการศึกษาก็...</p>
+      </div>
+      <br></br>
+      <br></br>
+      <div style={{backgroundColor:"#F1F1F6", borderRadius: '10px', margin:"10px"}}>
+        <div className={styles.cardContainer } style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <img
+            src="https://scontent.fbkk5-7.fna.fbcdn.net/v/t1.6435-9/97395343_2918033868312279_7099698996054065152_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGpAG0waTDNMnvypRs4dtR096mPgjbsgxP3qY-CNuyDEydQ44GVYMjln8woKzrtmpHYrcxXpEpfHsYKHEHVzYnD&_nc_ohc=iuCBKYAsmJAAX_LqGsd&_nc_ht=scontent.fbkk5-7.fna&oh=00_AfC-NdiNBLZ8QlkhpQwRN19XadQDPTq0ZC3Xo_VpUbtfiw&oe=646E5C21"
+            className={`${styles.cardImage} transform transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110`} style={{ width: '30%',marginLeft: '50px' } }
+          />
+        <div className={styles.textContainer} style={{ width: '50%', textAlign: 'center', marginRight: '50px' }}>
+          <p className={`${styles.textcard} mb-4`}>มัญยมศึกษาตอนต้น :  โรงเรียนรัตนาธิเบศร์</p>
+          <p className={`${styles.textcard} mb-4`}>มัญยมศึกษาตอนปลาย : โรงเรียนรัตนาธิเบศร์</p>
+          <p className={`${styles.textcard} mb-4`}>กำลังศึกษาปริญญาตรี :พระจอมเกล้าพระนครเหนือ</p>
+          <br />
+        </div>
+          
+        </div>
+      </div>
+      <div className={styles.text} style={{ textAlign: 'center' }}>
+        <br />
         <p >{user.text4}</p>
       </div>
       <br/>
