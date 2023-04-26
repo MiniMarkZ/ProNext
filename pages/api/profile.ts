@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import axios from 'axios';
 
 
 type User = {
@@ -16,6 +17,13 @@ const user: User = {
   text3: 'เกิดวันที่ 11 มิถุนายน พ.ศ 2544 เป็นนักศึกษาชั้นปีที่ 4 สาขาวิชาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ประยุกต์ พระจอมเกล้าพระนครเหนือ \nสิ่งที่ชอบทำคือ อยู่กับตัวเอง และ เล่นเกม ครับ',
   text4: 'รูปเก่าๆ (เป็นคนรูปน้อยครับ)'
 };
+
+export async function getServerSideProps() {
+  const res = await axios.get('http://localhost:8080/profile');
+  const user = res.data;
+
+  return { props: { user } };
+}
 
 export default (req: NextApiRequest, res: NextApiResponse<User>) => {
   res.status(200).json(user);

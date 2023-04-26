@@ -3,36 +3,42 @@ import styles from '../styles/ProfilePage.module.css'; // Import CSS styles
 
 
 type User = {
-  name: string;
-  text1: string;
-  text2: string;
-  text3: string;
-  text4: string;
-
+  text: string;
 };
+type Img = {
+  img: string;
+}
+type Study = {
+  study: string;
+}
 
 type Props = {
   user: User;
+  img : Img
+  study: Study;
 };
 
-const ProfilePage: NextPage<Props> = ({ user }) => {
+const ProfilePage: NextPage<Props> = ({ user,study,img }) => {
+  console.log(user);
+  console.log("asd",study);
+  console.log("img",img);
   return (
     <div>
       <div className={styles.background}>
-        <h1 className={styles.texttitle}>{user.name}</h1>
+        <h1 className={styles.texttitle}>เด็กคนนี้ชื่อ มาร์ค ครับ</h1>
       </div>
       <div className={styles.text} style={{ textAlign: 'center' }}>
         <br />
-        <p >{user.text1}</p>
+        <p >เด็กคนนี้อายุตอนนั้น 9 ขวบ ตอนนี้ 21 เเล้วครับ</p>
       </div>
       <br/>
       <br/>
       <div style={{backgroundColor:"#F1F1F6", borderRadius: '10px', margin:"10px"}}>
         <div className={styles.cardContainer } style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div className={styles.textContainer} style={{ width: '50%', textAlign: 'center', marginLeft: '50px' }}>
-          <p className={`${styles.textcard} text-2xl font-bold mb-2`} style={{fontSize:"30px"}}>{user.text2}</p>
+          <p className={`${styles.textcard} text-2xl font-bold mb-2`} style={{fontSize:"30px"}}>นาย {user[0][4]} {user[0][5]} ชื่อเล่น {user[0][6]} ครับ</p>
           <br />
-          <p className={`${styles.textcard} mb-4`}>{user.text3}</p>
+          <p className={`${styles.textcard} mb-4`}>{user[0][2]}{user[0][3]}</p>
           <br />
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center'  }}>
             <a href="https://github.com/MiniMarkZ">
@@ -47,7 +53,7 @@ const ProfilePage: NextPage<Props> = ({ user }) => {
           </div>
         </div>
           <img
-            src="https://media.discordapp.net/attachments/900255663081545761/1099284431505723423/3f84c768-c2d2-4626-98fe-cd8e9104cf45.jpg?width=577&height=671"
+            src={img[0][2]}
             className={`${styles.cardImage} transform transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110`} style={{ width: '30%',marginRight: '50px' } }
           />
         </div>
@@ -61,13 +67,13 @@ const ProfilePage: NextPage<Props> = ({ user }) => {
       <div style={{backgroundColor:"#F1F1F6", borderRadius: '10px', margin:"10px"}}>
         <div className={styles.cardContainer } style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <img
-            src="https://scontent.fbkk5-7.fna.fbcdn.net/v/t1.6435-9/97395343_2918033868312279_7099698996054065152_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeGpAG0waTDNMnvypRs4dtR096mPgjbsgxP3qY-CNuyDEydQ44GVYMjln8woKzrtmpHYrcxXpEpfHsYKHEHVzYnD&_nc_ohc=iuCBKYAsmJAAX_LqGsd&_nc_ht=scontent.fbkk5-7.fna&oh=00_AfC-NdiNBLZ8QlkhpQwRN19XadQDPTq0ZC3Xo_VpUbtfiw&oe=646E5C21"
+            src={img[1][2]}
             className={`${styles.cardImage} transform transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110`} style={{ width: '30%',marginLeft: '50px' } }
           />
         <div className={styles.textContainer} style={{ width: '50%', textAlign: 'center', marginRight: '50px' }}>
-          <p className={`${styles.textcard} mb-4`}>มัญยมศึกษาตอนต้น :  โรงเรียนรัตนาธิเบศร์</p>
-          <p className={`${styles.textcard} mb-4`}>มัญยมศึกษาตอนปลาย : โรงเรียนรัตนาธิเบศร์</p>
-          <p className={`${styles.textcard} mb-4`}>กำลังศึกษาปริญญาตรี :พระจอมเกล้าพระนครเหนือ</p>
+          <p className={`${styles.textcard} mb-4`}>มัญยมศึกษาตอนต้น :  {study[0][1]}</p>
+          <p className={`${styles.textcard} mb-4`}>มัญยมศึกษาตอนปลาย : {study[0][1]}</p>
+          <p className={`${styles.textcard} mb-4`}>กำลังศึกษาปริญญาตรี :{study[1][1]}</p>
           <br />
         </div>
           
@@ -75,14 +81,14 @@ const ProfilePage: NextPage<Props> = ({ user }) => {
       </div>
       <div className={styles.text} style={{ textAlign: 'center' }}>
         <br />
-        <p >{user.text4}</p>
+        <p >รูปเก่าๆ (เป็นคนรูปน้อยครับ)</p>
       </div>
       <br/>
       <br/>
       <div style={{backgroundColor:"#F1F1F6", borderRadius: '10px', margin:"10px"}}>
         <div className={styles.cardContainer } style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <img
-            src="https://scontent.fbkk5-7.fna.fbcdn.net/v/t1.18169-9/16807280_1237594613022888_1964372268726998078_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_eui2=AeGte8NLP0srPPAKKaJ5mVEW7YFHYm-mmA3tgUdib6aYDRVhp5QdtmAW366iQmftlKFUrLSMZygPJWT8BMvNLlD3&_nc_ohc=HVnvQuWww0sAX8tmexn&_nc_ht=scontent.fbkk5-7.fna&oh=00_AfDgXIBvUu-kGC7BS768LJyGG5j1eWbZCK2bsAEXPx5AeQ&oe=646E08A1"
+            src= {img[2][2]}
             className={`${styles.cardImage} transform transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110`} style={{ width: '30%'} }
           />
           <img
@@ -103,9 +109,13 @@ const ProfilePage: NextPage<Props> = ({ user }) => {
 };
 
 ProfilePage.getInitialProps = async (ctx: NextPageContext) => {
-  const res = await fetch('http://localhost:3000/api/profile');
+  const res = await fetch('http://localhost:8080/profile');
   const user = await res.json();
-  return { user };
+  const resstudy = await fetch('http://localhost:8080/study');
+  const study = await resstudy.json();
+  const resimg =  await fetch('http://localhost:8080/img');
+  const img = await resimg.json();
+  return { user , study , img};
 };
 
 export default ProfilePage;
