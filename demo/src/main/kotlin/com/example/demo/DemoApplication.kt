@@ -42,3 +42,4 @@ class MessageController(val jdbcTemplate: JdbcTemplate) {
 		}
 	}
 }
+//asd/
