@@ -10,7 +10,7 @@ const ProfilePage = () => {
     const [study, setStudy] = useState<any>([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/profile')
+        axios.get('http://116.89.252.221:8080/profile')
         .then(response => {
             setUser(response.data);
             console.log("asd",user);
@@ -18,7 +18,7 @@ const ProfilePage = () => {
         .catch(error => {
           console.error(error);
         });
-        axios.get('http://localhost:8080/img')
+        axios.get('http://116.89.252.221:8080/img')
         .then(response => {
           setImg(response.data);
           console.log("asd2",img);
@@ -27,7 +27,7 @@ const ProfilePage = () => {
           console.error(error);
         });
 
-        axios.get('http://localhost:8080/study')
+        axios.get('http://116.89.252.221:8080/study')
         .then(response => {
           setStudy(response.data);
           console.log("asd3",study);

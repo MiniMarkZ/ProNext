@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
 }
 
 
-@CrossOrigin(origins = ["http://localhost:3000"])
+@CrossOrigin(origins = ["http://116.89.252.221:3000"])
 @RestController
 class MessageController(val jdbcTemplate: JdbcTemplate) {
 
