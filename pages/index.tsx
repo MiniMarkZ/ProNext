@@ -1,4 +1,4 @@
-import { NextPage, NextPageContext } from 'next';
+import Head from 'next/head';
 import { useEffect , useState } from 'react';
 import styles from '../styles/ProfilePage.module.css'; // Import CSS styles
 import axios from 'axios';
@@ -10,7 +10,7 @@ const ProfilePage = () => {
     const [study, setStudy] = useState<any>([]);
 
     useEffect(() => {
-        axios.get('http://116.89.252.221:8080/profile')
+        axios.get('http://localhost:8080/profile')
         .then(response => {
             setUser(response.data);
             console.log("asd",user);
@@ -18,7 +18,7 @@ const ProfilePage = () => {
         .catch(error => {
           console.error(error);
         });
-        axios.get('http://116.89.252.221:8080/img')
+        axios.get('http://localhost:8080/img')
         .then(response => {
           setImg(response.data);
           console.log("asd2",img);
@@ -27,7 +27,7 @@ const ProfilePage = () => {
           console.error(error);
         });
 
-        axios.get('http://116.89.252.221:8080/study')
+        axios.get('http://localhost:8080/study')
         .then(response => {
           setStudy(response.data);
           console.log("asd3",study);
@@ -36,9 +36,12 @@ const ProfilePage = () => {
           console.error(error);
         });
     }, []);
-
+   
     return (
-        <div>
+      <div>
+        <Head>
+          <title>Mark Portfolio</title>
+        </Head>
       <div className={styles.background}>
         <h1 className={styles.texttitle}>เด็กคนนี้ชื่อ มาร์ค ครับ</h1>
       </div>
@@ -51,7 +54,7 @@ const ProfilePage = () => {
       <div style={{backgroundColor:"#F1F1F6", borderRadius: '10px', margin:"10px"}}>
         <div className={styles.cardContainer } style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div className={styles.textContainer} style={{ width: '50%', textAlign: 'center', marginLeft: '50px' }}>
-          <p className={`${styles.textcard} text-2xl font-bold mb-2`} style={{fontSize:"30px"}}>นาย { user.length > 0 ? user[0][4] : ""} {user.length > 0 ? user[0][5] : ""} ชื่อเล่น {user.length > 0 ? user[0][5] : ""} ครับ</p>
+          <p className={`${styles.textcard} text-2xl font-bold mb-2`} style={{fontSize:"30px"}}>นาย { user.length > 0 ? user[0][4] : ""} {user.length > 0 ? user[0][5] : ""} ชื่อเล่น {user.length > 0 ? user[0][6] : ""} ครับ</p>
           <br />
           <p className={`${styles.textcard} mb-4`}>{user.length > 0 ? user[0][2] : "" }{user.length > 0 ? user[0][3] : ""}</p>
           <br />
@@ -81,22 +84,82 @@ const ProfilePage = () => {
       <br></br>
       <div style={{backgroundColor:"#F1F1F6", borderRadius: '10px', margin:"10px"}}>
         <div className={styles.cardContainer } style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <img
-            src={user.length > 0 ? img[1][2] : ""}
-            className={`${styles.cardImage} transform transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110`} style={{ width: '30%',marginLeft: '50px' } }
-          />
+          <div className={styles.textContainer} style={{ width: '50%', textAlign: 'center', marginRight: '50px' }}>
+          <br></br>
+            <img
+              src="https://www.rt.ac.th/images/2563/20010.png"
+              style={{ width: '30%', display:'flex',alignItems:"center", margin: '0 auto' }}
+            />
+            <br></br>
+            <p className={`${styles.textcard} mb-4`}>มัญยมศึกษาตอนต้น : {user.length > 0 ? study[0][1] : "" }</p>
+            <br />
+          </div>
+          <div className={styles.textContainer} style={{ width: '50%', textAlign: 'center', marginRight: '50px' }}>
+          <br></br>
+            <img
+              src="https://www.rt.ac.th/images/2563/20010.png"
+              style={{ width: '30%', display:'flex',alignItems:"center", margin: '0 auto' }}
+            />
+            <br></br>
+            <p className={`${styles.textcard} mb-4`}>มัญยมศึกษาตอนปลาย : {user.length > 0 ? study[0][1] : "" }</p>
+            <br />
+          </div>
+          <div className={styles.textContainer} style={{ width: '50%', textAlign: 'center', marginRight: '50px' }}>
+            <br></br>
+            <img
+              src="https://www.kmutnb.ac.th/getattachment/about/symbols/logo_kmutnb-(6).png.aspx?width=250&height=246"
+              style={{ width: '30%', display:'flex',alignItems:"center", margin: '0 auto' }}
+            />
+            <br></br>
+            <p className={`${styles.textcard} mb-4`}>กำลังศึกษาปริญญาตรี : {user.length > 0 ? study[1][1] : "" }</p>
+            <br />
+          </div>
+        </div>
+      </div>
+      <div className={styles.text} style={{ textAlign: 'center' }}>
+        <br />
+        <p > Project ที่เคยทำ</p>
+      </div>
+      <br></br>
+      <br></br>
+      <div style={{backgroundColor:"#F1F1F6", borderRadius: '10px', margin:"10px"}}>
+        <div className={styles.cardContainer } style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div className={styles.textContainer} style={{ width: '50%', textAlign: 'center', marginRight: '50px' }}>
-          <p className={`${styles.textcard} mb-4`}>มัญยมศึกษาตอนต้น : {user.length > 0 ? study[0][1] : "" }</p>
-          <p className={`${styles.textcard} mb-4`}>มัญยมศึกษาตอนปลาย : {user.length > 0 ? study[0][1] : "" }</p>
-          <p className={`${styles.textcard} mb-4`}>กำลังศึกษาปริญญาตรี : {user.length > 0 ? study[0][1] : "" }</p>
+          <p className={`${styles.textcard} mb-4`}>ปี 1</p>
+          <p className={`${styles.textcard} mb-4`}>เขียนโปรเเกรมค้นหาข้อมูลและแก้ไขเงินเดือนของพนักงาน ด้วยภาษา python</p>
+            <a href="https://github.com/MiniMarkZ/Projectpython1" style={{ display: 'flex', margin: '0 auto', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
+              <img src="https://media.discordapp.net/attachments/900255663081545761/1100038234995699832/github.png?width=936&height=936" style={{ width: '32px', height: '32px', marginBottom: '8px' }} />
+            </a>
+          <p className={`${styles.textcard} mb-4`}>เขียนโปรเเกรมจัดการข้อมูลของร้านขายของ ด้วยภาษา c</p>
+            <a href="https://github.com/MiniMarkZ/ProjectC1" style={{ display: 'flex', margin: '0 auto', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
+              <img src="https://media.discordapp.net/attachments/900255663081545761/1100038234995699832/github.png?width=936&height=936" style={{ width: '32px', height: '32px', marginBottom: '8px' }} />
+            </a>
+          <br />
+        </div>
+      
+        <div className={styles.textContainer} style={{ width: '50%', textAlign: 'center', marginRight: '50px' }}>
+          <p className={`${styles.textcard} mb-4`}>ปี 2</p>
+          <p className={`${styles.textcard} mb-4`}>เขียนเว็บแสดงข้อมูลต่างๆด้วย react</p>
+          <a href="https://github.com/MiniMarkZ/Reactcovid" style={{ display: 'flex', margin: '0 auto', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
+              <img src="https://media.discordapp.net/attachments/900255663081545761/1100038234995699832/github.png?width=936&height=936" style={{ width: '32px', height: '32px', marginBottom: '8px' }} />
+          </a>
+          <br />
+        </div>
+        <div className={styles.textContainer} style={{ width: '50%', textAlign: 'center', marginRight: '50px' }}>
+          <p className={`${styles.textcard} mb-4`}>ปี 3</p>
+          <p className={`${styles.textcard} mb-4`}> เขียนเว็บคำนวณตามสูตรต่างๆของวิชา numerical ด้วย react</p>
+          <a href="https://github.com/MiniMarkZ/numer-React" style={{ display: 'flex', margin: '0 auto', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
+              <img src="https://media.discordapp.net/attachments/900255663081545761/1100038234995699832/github.png?width=936&height=936" style={{ width: '32px', height: '32px', marginBottom: '8px' }} />
+          </a>
           <br />
         </div>
           
         </div>
       </div>
+
       <div className={styles.text} style={{ textAlign: 'center' }}>
         <br />
-        <p >รูปเก่าๆ (เป็นคนรูปน้อยครับ)</p>
+        <p >รูป</p>
       </div>
       <br/>
       <br/>
